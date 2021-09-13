@@ -8,7 +8,7 @@
       <ion-button fill="clear" color ="dark">
         <ion-icon slot="icon-only" name ="add-circle-outline"></ion-icon>
       </ion-button>
-      <ion-button fill="clear" color ="dark">
+      <ion-button fill="clear" color ="dark" (click)="options()">
         <ion-icon slot="icon-only" name ="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -91,7 +91,7 @@
       <ion-slide *ngFor="let item of stories; let i = index">
         <ion-col>
           <ion-thumbnail>
-            <ion-icon *ngIf="i == 0" name="add" color="dark"></ion-icon>
+            <ion-icon *ngIf="i === 0" name="add" color="dark"></ion-icon>
             <img *ngIf="i > 0" [src]="item?.src" />
           </ion-thumbnail>
           <p>
@@ -104,7 +104,7 @@
   <ion-row class="images" (ionChange)="buttonsChanged($event)">
     <ion-segment mode="md" [value]="buttonValue">
       <ion-segment-button [value]="item?.value" *ngFor="let item of buttonItems">
-        <ion-icon [name]="buttonValue == item?.value ? item?.icon : item?.icon + '-outline'"></ion-icon>
+        <ion-icon [name]="buttonValue === item?.value ? item?.icon : item?.icon + '-outline'"></ion-icon>
       </ion-segment-button>
     </ion-segment>
   </ion-row>    
@@ -113,8 +113,8 @@
 <div [ngSwitch]="buttonValue">
   <ion-list lines="none" *ngSwitchCase="'grid'" class="photo-grid">
     <div *ngFor="let item of posts; let i = index">
-      <ion-grid *ngIf="i%3 == 0" class="noPadding">
-        <ion-row *ngIf="i%9 == 0">
+      <ion-grid *ngIf="i%3 === 0" class="noPadding">
+        <ion-row *ngIf="i%9 === 0">
           <ion-col size="8">
             <div class="image-container image-container1" [style.background-image]="'url(' + item?.url + ')'"></div>
           </ion-col>

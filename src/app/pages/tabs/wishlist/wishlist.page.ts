@@ -31,9 +31,9 @@ export class WishlistPage implements OnInit {
       {id: 1, username: 'chillfilms', user_profile: 'assets/imgs/1.jpg', time: '1 min', activity: 'follow'},
       {id: 2, username: 'deadpool', user_profile: 'assets/imgs/4.jpg', time: '5 mins', activity: 'comment', comments: 'Bien, valoremos los pros y contras de ser superhéroe.', post: 'assets/imgs/5.jpg'},
       {id: 3, username: 'arañita', user_profile: 'assets/imgs/6.jpg', time: '1d', activity: 'follow'},
-      {id: 4, username: 'deolinda', user_profile: 'assets/imgs/3.jpg', time: '1w', activity: 'follow'},
+      {id: 4, username: 'deolinda', user_profile: 'assets/imgs/3.jpg', time: '1d', activity: 'follow'},
       {id: 5, username: 'codigo_verde', user_profile: 'assets/imgs/2.jpg', time: '5 mins', activity: 'comment', comments: '¿Has comprobado que no haya algún virus en tu sistema?.', post: 'assets/imgs/posts/posts10.png'},
-      {id: 6, username: 'lentes', user_profile: 'assets/imgs/posts5.png', time: '3w', activity: 'follow'},
+      {id: 6, username: 'lentes', user_profile: 'assets/imgs/posts5.png', time: '3d', activity: 'follow'},
     ];
   }
 

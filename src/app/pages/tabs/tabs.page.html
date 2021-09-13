@@ -1,19 +1,39 @@
-<ion-tabs #tabs (ionTabsDidChange)= "setCurrentTab($event)">
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab($event)">
+
+  <!-- -------------------Custom Tabs with fab button------------------------------- -->
+  <ion-fab 
+    *ngIf="selectTab && !isHide"
+    [class]="selectTab == 'wishlist' ? 'right-align animated' : (selectTab == 'search' ? 'left-align animated' : 'animated')"
+    vertical="bottom" 
+    [horizontal]="selectTab == 'home' ? 'start' : (selectTab == 'profile' ? 'end' : 'center')" 
+    translucent="true">
+    <ion-fab-button>
+      <ion-icon [name]="getIcon()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home">
-      <ion-icon [name]="seletTab == 'home' ? 'home' : 'home-outline'"></ion-icon>
+      <ion-icon *ngIf="selectTab != 'home'" name="home-outline"></ion-icon>
+      <ion-label *ngIf="selectTab == 'home'">Inicio</ion-label>
     </ion-tab-button>
     <ion-tab-button tab="search">
-      <ion-icon [name]="seletTab == 'search' ? 'search' : 'search-outline'"></ion-icon>
+      <ion-icon *ngIf="selectTab != 'search'" name="search-outline"></ion-icon>
+      <ion-label *ngIf="selectTab == 'search'">Buscar</ion-label>
     </ion-tab-button>
+
     <ion-tab-button tab="add-post">
-      <ion-icon [name]="seletTab == 'add-post' ? 'film' : 'film-outline'"></ion-icon>
+      <ion-icon *ngIf="selectTab != 'add-post'" name="film-outline"></ion-icon>
+      <ion-label *ngIf="selectTab == 'add-post'">Reels</ion-label>
     </ion-tab-button>
+
     <ion-tab-button tab="wishlist">
-      <ion-icon [name]="seletTab == 'wishlist' ? 'heart' : 'heart-outline'"></ion-icon>
+      <ion-icon *ngIf="selectTab != 'wishlist'" name="heart-outline"></ion-icon>
+      <ion-label *ngIf="selectTab == 'wishlist'">Actividad</ion-label>
     </ion-tab-button>
     <ion-tab-button tab="profile">
-      <ion-icon [name]="seletTab == 'profile' ? 'person' : 'person-outline'"></ion-icon>
+      <ion-icon *ngIf="selectTab != 'profile'" name="person-outline"></ion-icon>
+      <ion-label *ngIf="selectTab == 'profile'">Perfil</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
+
 </ion-tabs>

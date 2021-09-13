@@ -34,3 +34,9 @@
     --ion-color-shade: var(--ion-color-white-shade);
     --ion-color-tint: var(--ion-color-white-tint);
 }
+
+.custom-modal .modal-wrapper {
+    --height: 95%;
+    margin-top: 10% !important;
+    border-radius: 20px 20px 0 0 !important;
+}

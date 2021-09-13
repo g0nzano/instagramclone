@@ -9,8 +9,8 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'home',
-        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
       },
       {
         path: 'search',
@@ -24,13 +24,13 @@ const routes: Routes = [
         path: 'wishlist',
         loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule)
       },
-      {
-        path: 'profile',
-        loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    {
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/wishlist',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       }
     ]

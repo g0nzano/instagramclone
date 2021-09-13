@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { OptionComponent } from './option/option.component';
 
 @Component({
   selector: 'app-profile',
@@ -13,17 +15,17 @@ export class ProfilePage implements OnInit {
   buttonItems:any[] = [];
   posts: any[] =[];
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
-  
+
     this.stories = [
       { name: ''},
       { name:'trilla', src: 'assets/imgs/stories/img1.png'},
       { name:'family', src: 'assets/imgs/stories/img2.png'},
       { name:'campus', src: 'assets/imgs/stories/img3.png'},
       { name:'2020', src: 'assets/imgs/stories/img4.png'},
-      { name:'2020', src: 'assets/imgs/stories/img5.png'}, 
+      { name:'2020', src: 'assets/imgs/stories/img5.png'},
       { name:'2020', src: 'assets/imgs/stories/img6.png'},
       { name:'2020', src: 'assets/imgs/stories/img7.png'},
     ];
@@ -54,7 +56,7 @@ export class ProfilePage implements OnInit {
 
   checkScreen(){
     let innerWidth = window.innerWidth;
-    console.log(innerWidth); 
+    console.log(innerWidth);
     switch (true){
       case 340 > innerWidth:
       return 5.5;
@@ -79,4 +81,16 @@ export class ProfilePage implements OnInit {
     this.buttonValue =event.detail.value;
   }
 
+  async options() {
+    const options = {
+      component: OptionComponent,
+      cssClass: 'custom-modal',
+      swipeToClose: true //ios 
+    };
+    const modal = await this.modalCtrl.create(options);
+    await modal.present();
+    
+  }
+
 }
+
